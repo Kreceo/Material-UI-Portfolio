@@ -1,6 +1,5 @@
 import ImageGrid from '../src/components/ImageGrid'
-import Typography from '@mui/material/Typography';
-import Box from '@mui/material/Box';
+import { Typography, Box } from "@mui/material";
 
 export default function Home() {
   return (

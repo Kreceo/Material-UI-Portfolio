@@ -3,17 +3,17 @@ import '../styles/globals.css'
 import Layout from '../src/components/layout'
 import type { AppProps } from 'next/app'
 import { ThemeProvider, createTheme } from '@mui/material';
+import { FormGroup, FormControlLabel, Switch } from '@mui/material';
 import CssBaseline from '@mui/material/CssBaseline';
 import { useEffect, useState } from 'react';
 import globalTheme from '../styles/theme';
-import Switch from '@mui/material/Switch';
 
 function MyApp({ Component, pageProps }: AppProps) {
   const [selectedTheme, setSelectedTheme] = useState<string>("light");
   const toggleCheck:boolean = true;
 
   const theme = createTheme({
-    ...globalTheme,
+    ...globalTheme, 
     palette: {
       mode: selectedTheme
     },
@@ -33,10 +33,18 @@ function MyApp({ Component, pageProps }: AppProps) {
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <Layout>
-        <Switch 
-          onChange={() => setSelectedTheme(selectedTheme === "light" ? "dark" : "light")}
-          checked={selectedTheme === 'dark' ? toggleCheck : ''}
-        />
+        <FormGroup>
+          <FormControlLabel 
+            control={ 
+              <Switch 
+                onChange={() => setSelectedTheme(selectedTheme === "light" ? "dark" : "light")}
+                checked={selectedTheme === 'dark' ? toggleCheck : ''}
+
+              />
+            } 
+            label="Dark mode"
+            />
+        </FormGroup>
         <Component {...pageProps} />
       </Layout>
     </ThemeProvider>
