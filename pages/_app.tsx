@@ -10,6 +10,7 @@ import Switch from '@mui/material/Switch';
 
 function MyApp({ Component, pageProps }: AppProps) {
   const [selectedTheme, setSelectedTheme] = useState<string>("light");
+  const toggleCheck:boolean = true;
 
   const theme = createTheme({
     ...globalTheme,
@@ -19,19 +20,23 @@ function MyApp({ Component, pageProps }: AppProps) {
   });
 
   useEffect(() => {
-    const data = window.localStorage.getItem('MY_APP_STATE');
+    const data = window.localStorage.getItem('themeOption');
     if ( data !== null ) setSelectedTheme(JSON.parse(data));
   }, []);
 
   useEffect(() => {
-    window.localStorage.setItem('MY_APP_STATE', JSON.stringify(selectedTheme));
+    window.localStorage.setItem('themeOption', JSON.stringify(selectedTheme));
+    console.log(selectedTheme);
   }, [selectedTheme]);
 
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <Layout>
-        <Switch onChange={() => setSelectedTheme(selectedTheme === "light" ? "dark" : "light")} />
+        <Switch 
+          onChange={() => setSelectedTheme(selectedTheme === "light" ? "dark" : "light")}
+          checked={selectedTheme === 'dark' ? toggleCheck : ''}
+        />
         <Component {...pageProps} />
       </Layout>
     </ThemeProvider>
