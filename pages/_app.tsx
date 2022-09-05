@@ -1,6 +1,6 @@
 import '../styles/globals.css'
 /* eslint-disable react/jsx-props-no-spreading */
-import Layout from '../src/components/layout'
+import Layout from '../src/components/Layout';
 import type { AppProps } from 'next/app'
 import { ThemeProvider, createTheme } from '@mui/material';
 import { FormGroup, FormControlLabel, Switch } from '@mui/material';
