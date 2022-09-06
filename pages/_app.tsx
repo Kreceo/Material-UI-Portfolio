@@ -2,7 +2,7 @@ import '../styles/globals.css'
 /* eslint-disable react/jsx-props-no-spreading */
 import Layout from '../src/components/Layout';
 import type { AppProps } from 'next/app'
-import { ThemeProvider, createTheme } from '@mui/material';
+import { ThemeProvider, createTheme, PaletteMode } from '@mui/material';
 import { FormGroup, FormControlLabel, Switch } from '@mui/material';
 import CssBaseline from '@mui/material/CssBaseline';
 import { useEffect, useState } from 'react';
@@ -10,12 +10,12 @@ import globalTheme from '../styles/theme';
 
 function MyApp({ Component, pageProps }: AppProps) {
   const [selectedTheme, setSelectedTheme] = useState<string>("light");
-  const toggleCheck:boolean = true;
+  const [toggleCheck, setToggleCheck] = useState<boolean>(false);
 
   const theme = createTheme({
     ...globalTheme, 
     palette: {
-      mode: selectedTheme
+      mode: selectedTheme as PaletteMode
     },
   });
 
@@ -26,7 +26,7 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   useEffect(() => {
     window.localStorage.setItem('themeOption', JSON.stringify(selectedTheme));
-    console.log(selectedTheme);
+    selectedTheme == 'dark' ? setToggleCheck(() => true) : setToggleCheck(() => false);
   }, [selectedTheme]);
 
   return (
@@ -38,8 +38,7 @@ function MyApp({ Component, pageProps }: AppProps) {
             control={ 
               <Switch 
                 onChange={() => setSelectedTheme(selectedTheme === "light" ? "dark" : "light")}
-                checked={selectedTheme === 'dark' ? toggleCheck : ''}
-
+                checked={toggleCheck}
               />
             } 
             label="Dark mode"
