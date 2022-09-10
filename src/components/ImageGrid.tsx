@@ -20,15 +20,17 @@ export default function ImageGrid() {
         gap={20}
       >
         {itemData.map((item) => (
+          <a href="/single-page">
           <ImageListItem key={item.img}>
-            <img
-              src={`${item.img}?w=248&fit=crop&auto=format`} 
-              srcSet={`${item.img}?w=248&fit=crop&auto=format&dpr=2 2x`}
-              alt={item.title}
-              width={380}
-              height={300}
-              loading="lazy"
-            />
+              <img
+                src={`${item.img}?w=248&fit=crop&auto=format`} 
+                srcSet={`${item.img}?w=248&fit=crop&auto=format&dpr=2 2x`}
+                alt={item.title}
+                width={380}
+                height={300}
+                loading="lazy"
+              />
+      
             <ImageListItemBar
               title={item.title}
               subtitle={item.category}
@@ -42,6 +44,7 @@ export default function ImageGrid() {
               }
             />
           </ImageListItem>
+          </a>
         ))}
       </ImageList>
       <Box
