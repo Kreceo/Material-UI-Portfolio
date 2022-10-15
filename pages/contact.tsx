@@ -4,7 +4,6 @@ import TwitterIcon from '@mui/icons-material/Twitter';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import Link from '@mui/material/Link';
-
 import { useState } from "react";
 
 export default function Contact() {
@@ -18,7 +17,7 @@ export default function Contact() {
 
     const formData = new FormData(e.target);
     
-    setName(e.target.value);
+    // setName(e.target.value);
 
     formData.append("access_key", "011d0a10-8def-4457-814d-fac6fb718fa6");
     formData.append("name", name);
