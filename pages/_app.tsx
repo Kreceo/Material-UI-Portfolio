@@ -12,6 +12,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   const [selectedTheme, setSelectedTheme] = useState<string>("light");
   const [toggleCheck, setToggleCheck] = useState<boolean>(false);
 
+  // Spreading the global theme to the new created theme
   const theme = createTheme({
     ...globalTheme, 
     palette: {
@@ -19,6 +20,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     },
   });
 
+  // Remembering our state on refresh using localstorage
   useEffect(() => {
     const data = window.localStorage.getItem('themeOption');
     if ( data !== null ) setSelectedTheme(JSON.parse(data));
@@ -44,7 +46,10 @@ function MyApp({ Component, pageProps }: AppProps) {
             label="Dark mode"
             />
         </FormGroup>
+
+        {/* Site here */}
         <Component {...pageProps} />
+
       </Layout>
     </ThemeProvider>
   )

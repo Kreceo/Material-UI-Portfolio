@@ -5,7 +5,10 @@ export default function Home() {
   return (
     <>
       <Box mt={6}>
-        <Typography variant="h1" sx={{fontSize: {xs: '25px', md: '35px'}}}>
+        <Typography 
+          variant="h1" 
+          sx={{fontSize: {xs: '25px', md: '35px'}}}
+        >
           Welcome to my portfolio
         </Typography>
         <Typography mt={1}>
@@ -15,6 +18,7 @@ export default function Home() {
 
       {/* Portfolio items */}
       <ImageGrid />
+      
     </>
   )
 }
