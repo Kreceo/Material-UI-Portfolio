@@ -6,6 +6,8 @@ import InfoIcon from '@mui/icons-material/Info';
 import { Button } from '@mui/material';
 import Box from '@mui/material/Box';
 import { useTheme, useMediaQuery } from '@mui/material';
+import { getAllPostsFromServer } from '../../lib/utils';
+import { useEffect, useState } from 'react';
 
 export default function ImageGrid() {
   const theme = useTheme();
@@ -15,7 +17,7 @@ export default function ImageGrid() {
   return (
     <>
       <ImageList 
-        sx={{ maxWidth: 1320, height: 1, marginTop: '60px'}} 
+        sx={{  marginTop: '60px'}} 
         cols={isMd ? 3 : isSm ? 2 : 1} 
         gap={20}
       >

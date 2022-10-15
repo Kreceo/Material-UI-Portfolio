@@ -11,7 +11,12 @@ export default function About() {
           Hey, I'm Darrell
         </Typography>
         <Typography mt={2}>I'm a Senior Software Engineer with over 4 years commercial experience.</Typography>
-        <Grid container spacing={6} mt={1} mb={6}>
+        <Grid 
+          container
+          spacing={6} 
+          mt={1} 
+          mb={6}
+        >
           <Grid item xs={12} md={6}>
             <img 
               src="https://kreceo.sfo2.cdn.digitaloceanspaces.com/Portfolio/Profile.jpeg"
